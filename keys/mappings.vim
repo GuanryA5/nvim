@@ -2,13 +2,11 @@
 " nnoremap <Space> <Nop>
 
 let g:mapleader = " "
-let g:maplocalleader = ","
+let g:maplocalleader = "\\"
 
 " 快速切换为正常模式
-inoremap jk  <Esc>
-vnoremap jk <Esc>
-
-nnoremap ; :
+inoremap jj <Esc>
+vnoremap jj <Esc>
 
 " 使用视图+< 或+ > 快速缩进
 vnoremap < <gv 
@@ -32,6 +30,12 @@ nnoremap <silent> <S-TAB> :bprevious<CR>
 " shift + j to move down
 xnoremap K :move '<-2<CR>gv-gv
 xnoremap J :move '>+1<CR>gv-gv
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
 
 " Ctrl + s 保存

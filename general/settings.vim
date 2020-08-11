@@ -39,5 +39,7 @@ set incsearch
 " au! BufWritePost $MYVIMRC source %      " auto source when writing to init.vm alternatively you can run :source $MYVIMRC
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+
 " 强制写入
  cmap w!! w !sudo tee %

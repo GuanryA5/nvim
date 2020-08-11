@@ -24,20 +24,20 @@ autocmd  FileType which_key set laststatus=0 noshowmode noruler
 
 
 " Single mappings
-let g:which_key_map['/'] = [ ':call Comment()'            , '注释选行' ]
-let g:which_key_map['c'] = [ ':Commands'                  , '搜索命令' ]
-let g:which_key_map['h'] = [ 'Startify'                   , '打开起始页' ]
-let g:which_key_map['d'] = [ ':bd'                        , '删除当前buffer']
-let g:which_key_map['e'] = [ ':CocCommand explorer'       , '打开资源管理器' ]
-let g:which_key_map['h'] = [ '<C-W>s'                     , '横向分屏']
-let g:which_key_map['q'] = [ 'q'                          , '退出' ]
-let g:which_key_map['r'] = [ ':RnvimrToggle'              , '打开ranger文件浏览器' ]
-let g:which_key_map['S'] = [ ':SSave'                     , '保存当前会话' ]
-let g:which_key_map['T'] = [ ':Rg'                        , '搜索文本内容' ]
-let g:which_key_map['v'] = [ '<C-W>v'                     , '垂直分屏到右边']
-let g:which_key_map['W'] = [ 'w'                          , '保存' ]
-let g:which_key_map['z'] = [ 'Goyo'                       , 'zen模式' ]
-let g:which_key_map['<Tab>'] = [ ':e#' , '打开最后编辑的文件']
+let     g:which_key_map['/'] = [      ':call Comment()' ,             '注释选行' ]
+let     g:which_key_map['c'] = [            ':Commands' ,             '搜索命令' ]
+let     g:which_key_map['h'] = [             'Startify' ,           '打开起始页' ]
+let     g:which_key_map['d'] = [                  ':bd' ,       '删除当前buffer' ]
+let     g:which_key_map['e'] = [ ':CocCommand explorer' ,       '打开资源管理器' ]
+let     g:which_key_map['r'] = [        ':RnvimrToggle' , '打开ranger文件浏览器' ]
+let     g:which_key_map['s'] = [               ':SSave' ,         '保存当前会话' ]
+let     g:which_key_map['z'] = [                 'Goyo' ,              'zen模式' ]
+let     g:which_key_map['W'] = [                    'w' ,                 '保存' ]
+let g:which_key_map['<Tab>'] = [                  ':e#' ,   '打开最后编辑的文件' ]
+let     g:which_key_map['q'] = [                    'q' ,                 '退出' ]
+let     g:which_key_map['Q'] = [                  ':q!' ,             '强制退出' ]
+let     g:which_key_map[' '] = [                '<Esc>' ,          'Scroll Down' ]
+let     g:which_key_map['f'] = [                  'FZF' ,                  'FZF' ]
 
 let g:which_key_map.1 = 'Win1'
 let g:which_key_map.2 = 'Win2'
@@ -53,83 +53,75 @@ let g:which_key_map.9 = 'Win9'
 
 " Group mappings
 
-let g:which_key_map[' '] = {
-      \ 'name': '+tab' ,
-      \ '1' : [ '<Plug>AirlineSelectTab1', 'tab-1' ],
-      \ '2' : [ '<Plug>AirlineSelectTab1', 'tab-2' ],
-      \ '3' : [ '<Plug>AirlineSelectTab1', 'tab-3' ],
-      \ '4' : [ '<Plug>AirlineSelectTab1', 'tab-4' ],
-      \ '5' : [ '<Plug>AirlineSelectTab1', 'tab-5' ],
-      \ '6' : [ '<Plug>AirlineSelectTab1', 'tab-6' ],
-      \ '7' : [ '<Plug>AirlineSelectTab1', 'tab-7' ],
-      \ '8' : [ '<Plug>AirlineSelectTab1', 'tab-8' ],
-      \ '9' : [ '<Plug>AirlineSelectTab1', 'tab-9' ],
-      \ 'N' : [':tabnew',                  '新建标签'],
-      \ 'c' : [':tabc',                    '关闭标签'],
-      \ 'o' : [':tabo',                    '关闭其他所有标签'],
-      \ 'f' : [':tabfrist',                '切换到第一个标签'],
-      \ 'l' : [':tablast',                 '切换到最后一个标签'],
-      \ 'p' : ['tabp',                     '切换到上一个标签'],
-      \ 'n' : ['tabn',                     '切换到下一个标签'],
-      \ }
-
 " a is for actions
 let g:which_key_map.a = {
-      \ 'name': '+align' ,
-      \ 'a':    [ '<Plug>(EasyAlign)'  , 'Align Action' ],
+      \ 'name': '+actions/align' ,
+      \ 'a' : [ ':CocCommand actions.open' ,        '动作'            ],
+      \ ',' : [ ':EasyAlign*,'             ,        '对齐所有(,)'     ],
+      \ '=' : [ ':EasyAlign*='             ,        '对齐所有(=)'     ],
+      \ 's' : [ ':<EasyAlign*\'            ,        '对齐所有(<SPC>)' ],
+      \ 'F' : [ ':Prettier'                ,        '格式化当前文件(Prettier)' ],
       \ }
-
 
 " b is for buffer
 let g:which_key_map['b'] = {
-  \ 'name' : '+ buffer',
-  \ 'f' : [ 'bfirst'                     , '切换到第一个buffer' ],
-  \ 'l' : [ 'blast'                      , '切换到最后一个buffer' ],
-  \ 'n' : [ 'bnext'                      , '切换下个buffer' ],
-  \ 'p' : [ 'bprevious'                  , '切换上个buffer'],
-  \ 'L' : [ ':Buffers'                   , '列出所有buffers' ],
-  \ 'd' : [ ':bd'                        , '删除当前buffer' ],
-  \ '?' : [ 'Buffers'                    , 'FZF Buffers' ],
+  \ 'name' : '+ buffer/bookmarks',
+  \ 'f' : [ 'bfirst'    , '切换到第一个buffer'   ],
+  \ 'l' : [ 'blast'     , '切换到最后一个buffer' ],
+  \ 'n' : [ 'bnext'     , '切换下个buffer'       ],
+  \ 'p' : [ 'bprevious' , '切换上个buffer'       ],
+  \ 'd' : [ ':bd'       , '删除当前buffer'       ],
+  \ 'b' : [ ':Buffers'  , '列出所有buffers'      ],
+  \ 'h' : [ 'Startify'  , '打开home页面'         ],
+  \ 'k' : { 
+    \ 'name' : 'bookmark' , 
+    \ 't' : [              ':CocCommand bookmark.toggle' ,        '创建/删除bookmark' ],
+    \ 'a' : [             ':CocCommand bookmark.anntate' ,     '创建带有注释bookamrk' ],
+    \ 'x' : [ ':CocCommand bookmark.clearForCurrentFile' , '删除当前文件所有bookmark' ],
+    \ 'X' : [       ':CocCommand bookmark.clearAllFiles' ,     '删除所有文件bookmark' ],
+    \ 'p' : [                ':CocCommand bookmark.prev' ,       '跳到下一个bookmark' ],
+    \ 'n' : [                ':CocCommand bookmark.next' ,       '跳到上一个bookmark' ],
+    \}
   \}
 
-
 let g:which_key_map['c'] = {
-      \ 'name' : '+Code',
-      \ 'e' : [ '<S-Q>'        , '切换ex模式'],
-      \ 'c' : [ ':Codi'        , '开启实时代码预览(Codi)' ],
-      \ 'C' : [ ':Codi!'       , '关闭实时代码预览(Codi)' ],
-      \ 's' : [ ':let @/ = ""' , '关闭搜索代码高亮' ],
-      \ 'r' : [ ':set relativenumber!' , '开启相对行号' ],
+      \ 'name' : '+Code/Goto',
+      \ 'e' : [ '<S-Q>',                '切换ex模式' ],
+      \ 'c' : [ ':Codi',                '开启实时代码预览(Codi)' ],
+      \ 'C' : [ ':Codi!',               '关闭实时代码预览(Codi)' ],
+      \ 'h' : [ ':let @/ = ""',         '关闭搜索代码高亮' ],
+      \ 'v' : [ ':Vista!!'             , '开/关 Tag Viewer' ],
+      \ 's' : [ ':CocList snippets'      , '代码snippets' ],
       \}
 
 " s is for search
 let g:which_key_map.s = {
       \ 'name' : '+search' ,
-      \ '/' : [':History/'              , 'history'],
-      \ ';' : [':Commands'              , 'commands'],
-      \ 'a' : [':Ag'                    , 'text Ag'],
-      \ 'b' : [':BLines'                , 'current buffer'],
-      \ 'B' : [':Buffers'               , 'open buffers'],
-      \ 'c' : [':Commits'               , 'git Commits'],
-      \ 'C' : [':BCommits'              , 'guffer commits'],
-      \ 'f' : [':Files'                 , 'files'],
-      \ 'g' : [':GFiles'                , 'git files'],
-      \ 'G' : [':GFiles?'               , 'modified git files'],
-      \ 'h' : [':History'               , 'file history'],
-      \ 'H' : [':History:'              , '历史命令(History:)'],
-      \ 'l' : [':Lines'                 , 'lines'] ,
+      \ '/' : [':History/'              , '查找历史匹配'],
+      \ ';' : [':Commands'              , '查找命令'],
+      \ 'a' : [':Ag'                    , 'Ag'],
+      \ 'b' : [':BLines'                , '锁定Buffer内容'],
+      \ 'B' : [':Buffers'               , '显示Buffer列表'],
+      \ 'c' : [':CocList commands'      , '查找Coc命令'],
+      \ 'f' : [':Files'                 , '查找路径下文件'],
+      \ 'h' : [':History'               , '查找历史编辑文件'],
+      \ 'H' : [':History:'              , '查找历史命令'],
+      \ 'l' : [':Lines'                 , '查找路径下匹配内容文件'] ,
       \ 'm' : [':Marks'                 , 'marks'] ,
       \ 'M' : [':Maps'                  , 'normal maps'] ,
-      \ 'p' : [':Helptags'              , 'help tags'] ,
       \ 'P' : [':Tags'                  , 'project tags'],
-      \ 's' : [':CocList snippets'      , '代码snippets'],
-      \ 'S' : [':Colors'                , 'color schemes'],
-      \ 't' : [':Rg'                    , '搜索匹配内容的所有文件'],
-      \ 'T' : [':BTags'                 , '搜索缓冲区所有Tags'],
+      \ 'r' : [':Rg'                    , '搜索匹配内容的所有文件'],
+      \ 't' : [':BTags'                 , '搜索缓冲区所有Tags'],
       \ 'w' : [':Windows'               , '搜索所有windows'],
-      \ 'y' : [':Filetypes'             , '所搜并变更Filetypes'],
+      \ 'y' : [':Filetypes'             , '变更当前Filetypes'],
       \ 'z' : [':FZF'                   , 'FZF'],
       \ }
+
+let g:which_key_map.h = {
+    \ 'name' : '+help' ,
+    \ 'p' : [':Helptags'              , 'help tags'] ,
+    \ 'm' : [':', '查看help'] ,
+  \}
 
 " g is for git
 let g:which_key_map.g = {
@@ -193,7 +185,6 @@ let g:which_key_map.l = {
       \ 't' : ['<Plug>(coc-type-definition)'         , 'type definition'],
       \ 'u' : [':CocListResume'                      , 'resume list'],
       \ 'U' : [':CocUpdate'                          , 'update CoC'],
-      \ 'v' : [':Vista!!'                            , 'tag viewer'],
       \ 'z' : [':CocDisable'                         , 'disable CoC'],
       \ 'Z' : [':CocEnable'                          , 'enable CoC'],
       \ }
@@ -201,29 +192,29 @@ let g:which_key_map.l = {
 " t is for terminal
 let g:which_key_map.t = {
       \ 'name' : '+toggle' ,
-      \ 'c' : [':call(Switvchthemes)'                           , '切换主题'],
-      \ 't' : [':FloatermNew --wintype=popup --height=6'        , '打开terminal'],
-      \ 'f' : [':FloatermNew fzf'                               , 'fzf'],
-      \ 'g' : [':FloatermNew lazygit'                           , 'git'],
-      \ 'd' : [':FloatermNew lazydocker'                        , 'docker'],
-      \ 'n' : [':FloatermNew node'                              , 'node'],
-      \ 'p' : [':FloatermNew python'                            , 'python'],
-      \ 'r' : [':FloatermNew ranger'                            , 'ranger'],
-      \ 'T' : [':FloatermToggle'                                , 'toggle'],
-      \ 'y' : [':FloatermNew ytop'                              , 'ytop'],
-      \ 's' : [':FloatermNew ncdu'                              , 'ncdu'],
+      \ 'r' : [ ':set relativenumber!'                                              , '开启相对行号'       ],
+      \ 'c' : [ ':call(Switvchthemes)'                                              , '切换主题'           ],
+      \ 's' : [ ':FloatermSend'                                                     , '发送内容到Terminal' ],
+      \ 'k' : [ ':FloatermKill'                                                     , '杀死Terminal进程'   ],
+      \ 'h' : [ ':FloatermHide'                                                     , '隐藏当前Terminal'   ],
+      \ 'p' : [ ':FloatermPrev'                                                     , '切换到上个Terminal' ],
+      \ 'n' : [ ':FloatermNext'                                                     , '切换到下个Terminal' ],
+      \ 'T' : [ ':FloatermNew'                                                      , '悬浮打开Terminal'   ],
+      \ 't' : [ ':FloatermNew --wintype=popup --height=6'                           , '水平打开Terminal'   ],
+      \ 'E' : [ ':CocCommand explorer --preset floatingRightside'                   , '悬浮打开explorer'   ],
+      \ 'P' : [ ':FloatermNew --wintype=normal --position=right --width=0.5 python' , '悬浮打开python'     ],
       \ }
 
 let g:which_key_map.T = {
-         \ 'name' : '+Tab',
-        \ 'N' : [':tabnew',           '新建标签'],
-          \ 'c' : [':tabc',           '关闭标签'],
-          \ 'o' : [':tabo',   '关闭其他所有标签'],
-      \ 'f' : [':tabfrist',   '切换到第一个标签'],
-       \ 'l' : [':tablast', '切换到最后一个标签'],
-           \ 'p' : ['tabp',   '切换到上一个标签'],
-           \ 'n' : ['tabn',   '切换到下一个标签'],
-                       \ }
+      \ 'name' : '+Tab',
+      \ 'N' : [ ':tabnew'   , '新建标签'           ],
+      \ 'c' : [ ':tabc'     , '关闭标签'           ],
+      \ 'o' : [ ':tabo'     , '关闭其他所有标签'   ],
+      \ 'f' : [ ':tabfrist' , '切换到第一个标签'   ],
+      \ 'l' : [ ':tablast'  , '切换到最后一个标签' ],
+      \ 'p' : [ 'tabp'      , '切换到上一个标签'   ],
+      \ 'n' : [ 'tabn'      , '切换到下一个标签'   ],
+      \ }
 
 
 " w is for windows
@@ -243,11 +234,13 @@ let g:which_key_map.w = {
       \ 'T' : ['<C-W>T'                                        , '将当前窗口放到标签页'],
       \ 'f' : ['<C-W>f'                                        , '打开光标下的文件'],
       \ 'F' : ['<C-W>gf'                                       , '在 Tab 中打开当前光标下的文件'],
-      \ 'o' : ['<C-W>o'                                        , '仅保留当前窗口'],
-      \ 'c' : ['<C-W>c'                                        , '关闭当前窗口'],
+      \ 'o' : ['<C-W>o'                                        , '删除所有窗口仅保留当前窗口'],
+      \ 'd' : ['<C-W>c'                                        , '关闭当前窗口'],
       \ 'w' : ['<C-W>w'                                        , '切换到下一个 window, wrap around'],
       \ 'W' : ['<C-W>W'                                        , '切换到上一个 window, wrap around'],
       \ }
+
+      
       " \ 'i' :,
       " \ 'name' : '+wiki',
       " \ 'w' : ['<Plug>(VimwikiIndex)',              '打开Index'],
@@ -275,31 +268,6 @@ let g:which_key_map['x'] = {
       \ 'd' : ['StripWhitespace'   , 'delete-trailing-whitespace'] ,
       \ }
 
-" Global
-" <Plug>VimwikiIndex
-" <Plug>VimwikiTabIndex
-" <Plug>VimwikiUISelect
-" <Plug>VimwikiDiaryIndex
-" <Plug>VimwikiMakeDiaryNote
-" <Plug>VimwikiTabMakeDiaryNote
-" <Plug>VimwikiMakeYesterdayDiaryNote
-" <Plug>VimwikiMakeTomorrowDiaryNote
-"
-" " Local
-" <Plug>Vimwiki2HTML
-" <Plug>Vimwiki2HTMLBrowse
-" <Plug>VimwikiDiaryGenerateLinks
-" <Plug>VimwikiFollowLink
-" <Plug>VimwikiSplitLink
-" <Plug>VimwikiVSplitLink
-" <Plug>VimwikiTabnewLink
-" <Plug>VimwikiGoBackLink
-" <Plug>VimwikiNextLink
-" <Plug>VimwikiPrevLink
-" <Plug>VimwikiGoto
-" <Plug>VimwikiDeleteLink
-" <Plug>VimwikiRenameLink
-" <Plug>VimwikiAddHeaderLevel
 
 " Register which key map
 call which_key#register('<Space>', "g:which_key_map")
