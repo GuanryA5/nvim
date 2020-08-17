@@ -42,10 +42,13 @@
   "python.linting.enabled": true,
   "python.linting.pylintEnabled": true,
   "python.formatting.provider": "black",
-  "python.formatting.blackPath": "~/.local/bin/black",
-  "python.condaPath": "~/.miniconda/bin/conda",
-  "python.sortImports.path": "~/.miniconda/envs/neovim/bin/isort",
-  "python.jediPath": "/usr/local/lib/python3.8/site-packages",
+  //pip3 install black
+  "python.formatting.blackPath": "User/gray/Library/Python/3.8/bin/black",
+  //  "python.condaPath": "~/.miniconda/bin/conda",
+  // pip3 install isort
+  "python.sortImports.path": "/Users/gray/Library/Python/3.8/bin/isort",
+  // pip3 install jedi
+  "python.jediPath": "/Users/gray/Library/Python/3.8/lib/python/site-packages/jedi",
 
   // snippets
   "snippets.ultisnips.directories": ["UltiSnips", "~/.config/nvim/snips"],

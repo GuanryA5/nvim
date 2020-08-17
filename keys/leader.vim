@@ -24,20 +24,20 @@ autocmd  FileType which_key set laststatus=0 noshowmode noruler
 
 
 " Single mappings
-let     g:which_key_map['/'] = [      ':call Comment()' ,             '注释选行' ]
-let     g:which_key_map['c'] = [            ':Commands' ,             '搜索命令' ]
-let     g:which_key_map['h'] = [             'Startify' ,           '打开起始页' ]
-let     g:which_key_map['d'] = [                  ':bd' ,       '删除当前buffer' ]
-let     g:which_key_map['e'] = [ ':CocCommand explorer' ,       '打开资源管理器' ]
-let     g:which_key_map['r'] = [        ':RnvimrToggle' , '打开ranger文件浏览器' ]
-let     g:which_key_map['s'] = [               ':SSave' ,         '保存当前会话' ]
-let     g:which_key_map['z'] = [                 'Goyo' ,              'zen模式' ]
-let     g:which_key_map['W'] = [                    'w' ,                 '保存' ]
-let g:which_key_map['<Tab>'] = [                  ':e#' ,   '打开最后编辑的文件' ]
-let     g:which_key_map['q'] = [                    'q' ,                 '退出' ]
-let     g:which_key_map['Q'] = [                  ':q!' ,             '强制退出' ]
-let     g:which_key_map[' '] = [                '<Esc>' ,          'Scroll Down' ]
-let     g:which_key_map['f'] = [                  'FZF' ,                  'FZF' ]
+let g:which_key_map['/']     = [ ':call Comment()'      , '注释选行'             ]
+let g:which_key_map['h']     = [ 'Startify'             , '打开起始页'           ]
+let g:which_key_map['d']     = [ ':bd'                  , '删除当前buffer'       ]
+let g:which_key_map['e']     = [ ':CocCommand explorer' , '打开资源管理器'       ]
+let g:which_key_map['r']     = [ ':RnvimrToggle'        , '打开ranger文件浏览器' ]
+let g:which_key_map['S']     = [ ':SSave'               , '保存当前会话'         ]
+let g:which_key_map['z']     = [ 'Goyo'                 , 'zen模式'              ]
+let g:which_key_map['W']     = [ 'w'                    , '保存'                 ]
+let g:which_key_map['<Tab>'] = [ ':e#'                  , '打开最后编辑的文件'   ]
+let g:which_key_map['q']     = [ 'quit'                 , '退出'                 ]
+let g:which_key_map['Q']     = [ ':qa!'                 , '强制退出'             ]
+let g:which_key_map[' ']     = [ '<Esc>'                , 'Scroll Down'          ]
+let g:which_key_map['f']     = [ 'FZF'                  , 'FZF'                  ]
+let g:which_key_map['m']     = [ ':CocList marketplace' , 'Coc插件下载'          ]
 
 let g:which_key_map.1 = 'Win1'
 let g:which_key_map.2 = 'Win2'
@@ -65,14 +65,16 @@ let g:which_key_map.a = {
 
 " b is for buffer
 let g:which_key_map['b'] = {
-  \ 'name' : '+ buffer/bookmarks',
-  \ 'f' : [ 'bfirst'    , '切换到第一个buffer'   ],
-  \ 'l' : [ 'blast'     , '切换到最后一个buffer' ],
-  \ 'n' : [ 'bnext'     , '切换下个buffer'       ],
-  \ 'p' : [ 'bprevious' , '切换上个buffer'       ],
-  \ 'd' : [ ':bd'       , '删除当前buffer'       ],
-  \ 'b' : [ ':Buffers'  , '列出所有buffers'      ],
-  \ 'h' : [ 'Startify'  , '打开home页面'         ],
+  \ 'name' : '+buffer/bookmarks',
+  \ '1' : [ 'b1'        , 'buffer 1'        ],
+  \ '2' : [ 'b2'        , 'buffer 2'        ],
+  \ 'd' : [ ':bd'       , 'delete-buffer'   ],
+  \ 'f' : [ 'bfirst'    , 'first-buffer'    ],
+  \ 'l' : [ 'blast'     , 'last-buffer'     ],
+  \ 'n' : [ 'bnext'     , 'next-buffer'     ],
+  \ 'p' : [ 'bprevious' , 'previous-buffer' ],
+  \ 'h' : [ 'Startify'  , 'home-buffer'     ],
+  \ '?' : [ 'Buffers'   , 'fzf-buffer'      ],
   \ 'k' : { 
     \ 'name' : 'bookmark' , 
     \ 't' : [              ':CocCommand bookmark.toggle' ,        '创建/删除bookmark' ],
@@ -218,49 +220,71 @@ let g:which_key_map.T = {
 
 
 " w is for windows
-let g:which_key_map.w = {
+" let g:which_key_map.w = {
+"       \ 'name' : '+windows/wiki',
+"       \ 'N' : [':enew'                                         , '新建窗口并编辑文件'],
+"       \ 'S' : [':new'                                          , '新建水平窗口并编辑新文件'],
+"       \ 'V' : [':vnew'                                         , '新建垂直窗口并编辑新文件'],
+"       \ 's' : [':split'                                        , '新建水平窗口并编辑当前文件'],
+"       \ 'v' : [':vsplit'                                       , '新建垂直窗口并编辑当前文件'],
+"       \ '+' : [':vertical resize +5'                           , '增大窗口宽度'],
+"       \ '-' : [':vertical resize -5'                           , '减小窗口宽度'],
+"       \ '=' : ['<C-W>='                                        , '等分窗口'],
+"       \ 'r' : ['<C-W>r'                                        , '向右或向下循环移动窗口'],
+"       \ 'R' : ['<C-W>R'                                        , '向左或向上循环移动窗口'],
+"       \ 'x' : ['<C-W>x'                                        , '将当前窗口与下一个窗口对换'],
+"       \ 'T' : ['<C-W>T'                                        , '将当前窗口放到标签页'],
+"       \ 'f' : ['<C-W>f'                                        , '打开光标下的文件'],
+"       \ 'F' : ['<C-W>gf'                                       , '在 Tab 中打开当前光标下的文件'],
+"       \ 'o' : ['<C-W>o'                                        , '删除所有窗口仅保留当前窗口'],
+"       \ 'd' : ['<C-W>c'                                        , '关闭当前窗口'],
+"       \ 'w' : ['<C-W>w'                                        , '切换到下一个 window, wrap around'],
+"       \ 'W' : ['<C-W>W'                                        , '切换到上一个 window, wrap around'],
+"       \ '?' : ['Windows'                                       , 'fzf-windows'],
+"       \}
+
+let g:which_key_map['w'] = {
       \ 'name' : '+windows' ,
-      \ 'N' : [':enew'                                         , '新建窗口并编辑文件'],
-      \ 'S' : [':new'                                          , '新建水平窗口并编辑新文件'],
-      \ 'V' : [':vnew'                                         , '新建垂直窗口并编辑新文件'],
-      \ 's' : [':split'                                        , '新建水平窗口并编辑当前文件'],
-      \ 'v' : [':vsplit'                                       , '新建垂直窗口并编辑当前文件'],
-      \ '+' : [':vertical resize +5'                           , '增大窗口宽度'],
-      \ '-' : [':vertical resize -5'                           , '减小窗口宽度'],
-      \ '=' : ['<C-W>='                                        , '等分窗口'],
-      \ 'r' : ['<C-W>r'                                        , '向右或向下循环移动窗口'],
-      \ 'R' : ['<C-W>R'                                        , '向左或向上循环移动窗口'],
-      \ 'x' : ['<C-W>x'                                        , '将当前窗口与下一个窗口对换'],
-      \ 'T' : ['<C-W>T'                                        , '将当前窗口放到标签页'],
-      \ 'f' : ['<C-W>f'                                        , '打开光标下的文件'],
-      \ 'F' : ['<C-W>gf'                                       , '在 Tab 中打开当前光标下的文件'],
-      \ 'o' : ['<C-W>o'                                        , '删除所有窗口仅保留当前窗口'],
-      \ 'd' : ['<C-W>c'                                        , '关闭当前窗口'],
-      \ 'w' : ['<C-W>w'                                        , '切换到下一个 window, wrap around'],
-      \ 'W' : ['<C-W>W'                                        , '切换到上一个 window, wrap around'],
+      \ 'w' : ['<C-W>w'     , 'other-window']          ,
+      \ 'd' : ['<C-W>c'     , 'delete-window']         ,
+      \ '-' : ['<C-W>s'     , 'split-window-below']    ,
+      \ '|' : ['<C-W>v'     , 'split-window-right']    ,
+      \ '2' : ['<C-W>v'     , 'layout-double-columns'] ,
+      \ 'h' : ['<C-W>h'     , 'window-left']           ,
+      \ 'j' : ['<C-W>j'     , 'window-below']          ,
+      \ 'l' : ['<C-W>l'     , 'window-right']          ,
+      \ 'k' : ['<C-W>k'     , 'window-up']             ,
+      \ 'H' : ['<C-W>5<'    , 'expand-window-left']    ,
+      \ 'J' : [':resize +5'  , 'expand-window-below']   ,
+      \ 'L' : ['<C-W>5>'    , 'expand-window-right']   ,
+      \ 'K' : [':resize -5'  , 'expand-window-up']      ,
+      \ '=' : ['<C-W>='     , 'balance-window']        ,
+      \ 's' : ['<C-W>s'     , 'split-window-below']    ,
+      \ 'v' : ['<C-W>v'     , 'split-window-below']    ,
+      \ '?' : ['Windows'    , 'fzf-window']            ,
       \ }
 
-      
-      " \ 'i' :,
-      " \ 'name' : '+wiki',
-      " \ 'w' : ['<Plug>(VimwikiIndex)',              '打开Index'],
-      " \ 'i' : ['<Plug>(VimwikiDiaryIndex)',         '打开日记目录'],
-      " \ 'n' : ['<plug>(wiki-open)',                 'wiki-open'],
-      " \ 's' : ['<Plug>(VimwikiUISelect)',           'wikiuiselect'],
-      " \ 'j' : ['<plug>(wiki-journal)',              'ncdu'],
-      " \ 'R' : ['<plug>(wiki-reload)',               'ncdu'],
-      " \ 'c' : ['<plug>(wiki-code-run)',             'ncdu'],
-      " \ 'b' : ['<plug>(wiki-graph-find-backlinks)', 'ncdu'],
-      " \ 'g' : ['<plug>(wiki-graph-in)',             'ncdu'],
-      " \ 'G' : ['<plug>(wiki-graph-out)',            'ncdu'],
-      " \ 'l' : ['<plug>(wiki-link-toggle)',          'ncdu'],
-      " \ 'd' : ['<plug>(wiki-page-delete)',          'ncdu'],
-      " \ 'r' : ['<plug>(wiki-page-rename)',          'ncdu'],
-      " \ 't' : ['<plug>(wiki-page-toc)',             '生成Toc目录'],
-      " \ 'T' : ['<plug>(wiki-page-toc-local)',       'ncdu'],
-      " \ 'e' : ['<plug>(wiki-export)',               'ncdu'],
-      " \ 'u' : ['<plug>(wiki-list-uniq)',            'ncdu'],
-      " \ 'U' : ['<plug>(wiki-list-uniq-local)',      'ncdu'],
+let g:which_key_map['k'] = {
+      \ 'name' : '+wiki' ,
+      \ 'w' : ['<Plug>(VimwikiIndex)',              '打开Index'],
+      \ 'i' : ['<Plug>(VimwikiDiaryIndex)',         '打开日记目录'],
+      \ 'n' : ['<plug>(wiki-open)',                 'wiki-open'],
+      \ 's' : ['<Plug>(VimwikiUISelect)',           'wikiuiselect'],
+      \ 'j' : ['<plug>(wiki-journal)',              'ncdu'],
+      \ 'R' : ['<plug>(wiki-reload)',               'ncdu'],
+      \ 'c' : ['<plug>(wiki-code-run)',             'ncdu'],
+      \ 'b' : ['<plug>(wiki-graph-find-backlinks)', 'ncdu'],
+      \ 'g' : ['<plug>(wiki-graph-in)',             'ncdu'],
+      \ 'G' : ['<plug>(wiki-graph-out)',            'ncdu'],
+      \ 'l' : ['<plug>(wiki-link-toggle)',          'ncdu'],
+      \ 'd' : ['<plug>(wiki-page-delete)',          'ncdu'],
+      \ 'r' : ['<plug>(wiki-page-rename)',          'ncdu'],
+      \ 't' : ['<plug>(wiki-page-toc)',             '生成Toc目录'],
+      \ 'T' : ['<plug>(wiki-page-toc-local)',       'ncdu'],
+      \ 'e' : ['<plug>(wiki-export)',               'ncdu'],
+      \ 'u' : ['<plug>(wiki-list-uniq)',            'ncdu'],
+      \ 'U' : ['<plug>(wiki-list-uniq-local)',      'ncdu'],
+      \}
 
 let g:which_key_map['x'] = {
       \ 'name' : '+text'           ,
