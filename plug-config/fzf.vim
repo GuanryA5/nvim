@@ -27,6 +27,8 @@ let $FZF_DEFAULT_COMMAND="rg --files --hidden --glob '!.git/**'"
 "-g '!{node_modules,.git}'
 
 " Customize fzf colors to match your color scheme
+hi FZFHighlight ctermbg=255
+hi FZFBackground ctermbg=254
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Normal'],
   \ 'bg':      ['bg', 'Normal'],

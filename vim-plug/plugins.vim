@@ -10,106 +10,139 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
   " vim 中文手册
   Plug 'yianwillis/vimcdoc'
-
-  " jsx syntax support
-  Plug 'maxmellon/vim-jsx-pretty'
-  
+  " 注释
+  Plug 'tpope/vim-commentary'
+  " 进制转换-十进制、十六进制、八进制和二进制
+  Plug 'glts/vim-radical'
+  " Repeat stuff
+  Plug 'tpope/vim-repeat'
+  " highlight all match under cursor
+  Plug 'RRethy/vim-illuminate'
   Plug 'suy/vim-context-commentstring'
   " Change dates fast
   Plug 'tpope/vim-speeddating'
-  " Convert binary, hex, etc..
-  Plug 'glts/vim-radical'
   " Files
   Plug 'tpope/vim-eunuch'
-  " Repeat stuff
-  Plug 'tpope/vim-repeat'
   " Surround
   Plug 'tpope/vim-surround'
   " Better Comments
-  Plug 'tpope/vim-commentary'
   " Plug 'preservim/nerdcommenter'
   " Have the file system follow you around
-  Plug 'airblade/vim-rooter'
-  " auto set indent settings
-  Plug 'tpope/vim-sleuth'
-
-  " Text Navigation
-  Plug 'justinmk/vim-sneak'
-  Plug 'unblevable/quick-scope'
-  " Plug 'easymotion/vim-easymotion'
-  " Add some color
-  Plug 'norcalli/nvim-colorizer.lua'
-  " Plug 'junegunn/rainbow_parentheses.vim'
-
-  Plug 'luochen1990/rainbow'
-  " Better Syntax Support
-  Plug 'sheerun/vim-polyglot'
-  " Cool Icons
-  Plug 'ryanoasis/vim-devicons'
-  " Auto pairs for '(' '[' '{' 
-  Plug 'jiangmiao/auto-pairs'
-  " Closetags
-  Plug 'alvan/vim-closetag'
-  " Themes
-  " Plug 'christianchiarulli/onedark.vim'
-  " Plug 'kaicataldo/material.vim'
-  " Plug 'NLKNguyen/papercolor-theme'
-  " Plug 'tomasiser/vim-code-dark'
-  " Plug 'andreypopp/vim-colors-plain'
-  Plug 'liuchengxu/space-vim-theme'
-  " Intellisense
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}
-  " Status Line
-  Plug 'vim-airline/vim-airline'
-  Plug 'vim-airline/vim-airline-themes'
-  " Ranger
-  " Plug 'francoiscabrol/ranger.vim'
-  " Plug 'rbgrouleff/bclose.vim'
-  Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
-  " FZF
-  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-  Plug 'junegunn/fzf.vim'
-  " Git
-  " Plug 'mhinz/vim-signify'
-  Plug 'airblade/vim-gitgutter'
-  Plug 'tpope/vim-fugitive'
-  Plug 'tpope/vim-rhubarb'
-  Plug 'junegunn/gv.vim'
-  " Terminal
-  Plug 'voldikss/vim-floaterm'
-  " Start Screen
-  Plug 'mhinz/vim-startify'
-  " Vista
-  Plug 'liuchengxu/vista.vim'
-  " See what keys do like in emacs
-  Plug 'liuchengxu/vim-which-key'
-  " Zen mode
-  Plug 'junegunn/goyo.vim'
-  " Making stuff
-  Plug 'neomake/neomake'
-  " Snippets
-  Plug 'honza/vim-snippets'
-  Plug 'mattn/emmet-vim'
-  " Better Comments
-  " Plug 'jbgutierrez/vim-better-comments'
-  " Echo doc
-  " Plug 'Shougo/echodoc.vim'
-  " 实时代码
-  Plug 'metakirby5/codi.vim'
-  " 写作工具
-  Plug 'https://github.com/vimwiki/vimwiki.git'
-  Plug 'mattn/calendar-vim'
-  Plug 'suan/vim-instant-markdown'
-  " DEBUG工具
-  Plug 'puremourning/vimspector'
-  " Align
-  Plug 'junegunn/vim-easy-align'
+  if exists('g:vscode')
+    Plug 'easymotion/vim-easymotion'
+  else 
 
 
-call plug#end()
+    " jsx syntax support
+    Plug 'maxmellon/vim-jsx-pretty'
+    " buffer
+    Plug 'moll/vim-bbye'
+    Plug 'airblade/vim-rooter'
+    " 自动适应缩进
+    Plug 'tpope/vim-sleuth'
+    " Text Navigation
+    Plug 'justinmk/vim-sneak'
+    Plug 'unblevable/quick-scope'
+    " Add some color
+    Plug 'norcalli/nvim-colorizer.lua'
+    " Plug 'junegunn/rainbow_parentheses.vim'
+
+    Plug 'luochen1990/rainbow'
+    " Better Syntax Support
+    Plug 'sheerun/vim-polyglot'
+    " Cool Icons
+    Plug 'ryanoasis/vim-devicons'
+    " Auto pairs for '(' '[' '{' 
+    Plug 'jiangmiao/auto-pairs'
+    " Closetags
+    Plug 'alvan/vim-closetag'
+    " Themes
+    Plug 'christianchiarulli/nvcode.vim'
+    Plug 'joshdick/onedark.vim'
+    " Plug 'kaicataldo/material.vim'
+    " Plug 'NLKNguyen/papercolor-theme'
+    " Plug 'tomasiser/vim-code-dark'
+    " Plug 'andreypopp/vim-colors-plain'
+    " Plug 'liuchengxu/space-vim-theme'
+    " Plug 'junegunn/seoul256.vim'
+    " Plug 'cocopon/iceberg.vim'
+    " Plug 'rakr/vim-one'
+    " Plug 'KabbAmine/yowish.vim'
+    Plug 'dracula/vim', { 'as': 'dracula' }
+    " Intellisense
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    " Status Line
+    Plug 'vim-airline/vim-airline'
+    Plug 'ryanoasis/vim-devicons'
+    " Ranger
+    " Plug 'rbgrouleff/bclose.vim'
+    Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
+    " FZF
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf.vim'
+    " Git
+    " Plug 'mhinz/vim-signify'
+    Plug 'airblade/vim-gitgutter'
+    Plug 'tpope/vim-fugitive'
+    Plug 'tpope/vim-rhubarb'
+    Plug 'junegunn/gv.vim'
+    " Terminal
+    Plug 'voldikss/vim-floaterm'
+    " Start Screen
+    Plug 'mhinz/vim-startify'
+    " Vista
+    Plug 'liuchengxu/vista.vim'
+    " See what keys do like in emacs
+    Plug 'liuchengxu/vim-which-key'
+    " Zen mode
+    Plug 'junegunn/goyo.vim'
+    " Making stuff
+    Plug 'neomake/neomake'
+    " Snippets
+    Plug 'honza/vim-snippets'
+    Plug 'mattn/emmet-vim'
+    " 实时代码
+    Plug 'metakirby5/codi.vim'
+    " 写作工具
+    "  Plug 'https://github.com/vimwiki/vimwiki.git'
+    " Plug 'mattn/calendar-vim'
+    Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+    " DEBUG工具
+    Plug 'puremourning/vimspector'
+    Plug 'itspriddle/vim-shellcheck'
+    " Align
+    Plug 'junegunn/vim-easy-align'
+    Plug 'godlygeek/tabular'
+    " tab mangers
+    Plug 'mg979/vim-xtabline'
+    " better whitepace
+    Plug 'ntpeters/vim-better-whitespace'
+    " visual multi select
+    Plug 'terryma/vim-multiple-cursors'
+    " 让浏览更顺滑，类似mac smoth
+    Plug 'psliwka/vim-smoothie'
+    " 缩进显示
+    Plug 'Yggdroot/indentLine'
+    " 列出文件最近的操作历史
+    Plug 'mbbill/undotree'
+    " lanuage 
+    Plug 'dense-analysis/ale'
+    Plug 'jmcantrell/vim-virtualenv'
+    Plug 'zenbro/mirror.vim'
+    Plug 'rizzatti/dash.vim'
+
+
+    " Plug 'hardcoreplayers/dashboard-nvim'
+    " Plug 'vim-airline/vim-airline-themes'
+    " Plug 'hardcoreplayers/spaceline.vim'
+
+  endif
+
+  call plug#end()
 
 " Automatically install missing plugins on startup
 autocmd VimEnter *
   \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
   \|   PlugInstall --sync | q
   \| endif
+

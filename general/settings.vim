@@ -1,9 +1,13 @@
+" theme
+set background=dark
+" colorscheme iceberg
+
 set iskeyword+=-                      	" treat dash separated words as a word text object"
 set formatoptions-=cro                  " Stop newline continution of comments
 
 
 syntax enable                           " 开启语法高亮
-set nocp                                " 不兼容vi操作
+set nocompatible                        " 不兼容vi操作
 set hidden                              " Required to keep multiple buffers open multiple buffers
 set nowrap                              " 显示不自动换行
 set encoding=utf-8                      " The encoding displayed 
@@ -23,10 +27,11 @@ set expandtab                           " 将tab符转为空格
 set smartindent                         " 智能缩进
 set autoindent                          " 自动缩进
 set laststatus=2                        " 总是显示状态栏
-set number                              " 显示行号 
+set nu                                  " 显示行号 
 set cursorline                          " Enable highlighting of the current line
 set showtabline=2                       " Always show tabs 
 set noshowmode                          " We don't need to see things like -- INSERT -- anymore
+set laststatus=2
 set nobackup                            " This is recommended by coc
 set nowritebackup                       " This is recommended by coc
 set shortmess+=c                        " Don't pass messages to |ins-completion-menu|.
@@ -34,13 +39,15 @@ set signcolumn=yes                      " Always show the signcolumn, otherwise 
 set updatetime=300                      " Faster completion
 set timeoutlen=100                      " By default timeoutlen is 1000 ms
 set pastetoggle=<F2>
-set clipboard=unnamed
+set guifont=CodeNewRoman\ Nerd\ Font:h20
 set incsearch
+set scrolloff=3                         " 顶部底部保持3行距离
+set clipboard=unnamed
+if has("unnamedplus") 
+    set clipboard+=unnamedplus
+endif
 
-" au! BufWritePost $MYVIMRC source %      " auto source when writing to init.vm alternatively you can run :source $MYVIMRC
-autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
-
-" 强制写入
- cmap w!! w !sudo tee %
+cmap w!! w !sudo tee %
+let g:python3_host_prog='/usr/local/opt/python@3.8/bin/python3'
+let g:python2_host_prog='/System/Library/Frameworks/Python.framework/Versions/2.7/bin/python2.7'
+let g:perl_host_prog = '/usr/local/bin/perl'

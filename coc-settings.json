@@ -1,6 +1,16 @@
 {
+  // coc-project
+  "project.enable": true,
+  "project.dbpath": "~/.coc-project",
+  "project.trace.server": "messages",
+  "project.rootPatterns": [".git", ".pyenv"],
+
   // suggestions
   // "suggest.echodocSupport": true,
+  "suggest.autoTrigger": "trigger",
+  "suggest.timeout": 500,
+  "suggest.enablePreview": false,
+
   // TODO add more labels and give them cool glyphs
   "suggest.completionItemKindLabels": {
     "text": "t",
@@ -13,9 +23,13 @@
   "diagnostic.warningSign": " ",
   "diagnostic.infoSign": "",
   "diagnostic.hintSign": " ",
-  // "diagnostic.virtualText": true, // this won't work with codelens when error on same line
+  "diagnostic.virtualText": false,
+  "diagnostic.checkCurrentLine": true,
+  "diagnostic.format": "[%source%code] %message [%severity] ",
+  "diagnostic.enableSign": true,
+  "diagnostic.enableHighlightLineNumber": true,
 
-  // "diagnostic.displayByAle": true,
+  "diagnostic.displayByAle": false,
 
   // codelens TODO what does this get me?
   // "codeLens.enable": true,
@@ -34,21 +48,31 @@
     "yaml",
     "json",
     "python",
-    "java"
+    "java",
+    "dockerfile",
+    "docker-compose"
   ],
   "coc.preferences.hoverTarget": "float",
 
   // python config
   "python.linting.enabled": true,
-  "python.linting.pylintEnabled": true,
+  "python.linting.pylintEnabled": false,
+  "python.envFile": "${workspaceFolder}/.env",
+  "python.linting.flake8Enabled": true,
+  "python.linting.flake8Path": "flake8",
   "python.formatting.provider": "black",
-  //pip3 install black
-  "python.formatting.blackPath": "User/gray/Library/Python/3.8/bin/black",
-  //  "python.condaPath": "~/.miniconda/bin/conda",
-  // pip3 install isort
-  "python.sortImports.path": "/Users/gray/Library/Python/3.8/bin/isort",
-  // pip3 install jedi
-  "python.jediPath": "/Users/gray/Library/Python/3.8/lib/python/site-packages/jedi",
+  // "python.formatting.blackPath": "User/gray/Library/Python/3.8/bin/black",
+  "python.formatting.blackPath": "black",
+  //"python.sortImports.path": "/Users/gray/Library/Python/3.8/bin/isort",
+  "python.sortImports.path": "isort",
+  // 自动补齐和静态分析工具
+  //"python.jediPath": "/Users/gray/Library/Python/3.8/lib/python/site-packages/jedi",
+  "python.jediPath": "jedi",
+  "python.linting.pydocstyleEnabled": true,
+  "python.linting.pydocstylePath": "pydocstyle",
+  // bash
+  "sh.enable": true,
+  "sh.commandPath": "bash-language-server",
 
   // snippets
   "snippets.ultisnips.directories": ["UltiSnips", "~/.config/nvim/snips"],
@@ -61,7 +85,7 @@
   },
 
   // explorer
-  "explorer.width": 40,
+  "explorer.width": 30,
   "explorer.icon.enableNerdfont": true,
   "explorer.previewAction.onHover": false,
   "explorer.icon.enableVimDevicons": true,
@@ -73,6 +97,7 @@
     "<tab>": "actionMenu",
 
     "h": "collapse",
+    "H": "collapse:all",
     "l": ["expandable?", "expand", "open"],
     "J": ["toggleSelection", "nodeNext"],
     "K": ["toggleSelection", "nodePrev"],
@@ -132,12 +157,5 @@
     ">>": "gitUnstage"
   },
 
-  "languageserver": {
-    "bash": {
-      "command": "bash-language-server",
-      "args": ["start"],
-      "filetypes": ["sh"],
-      "ignoredRootPaths": ["~"]
-    }
-  }
+  "coc.source.emoji.filetypes": ["markdown"]
 }

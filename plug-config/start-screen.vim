@@ -32,8 +32,9 @@ function! StartifyEntryFormat()
     endfunction
 
 let g:startify_bookmarks = [
-            \ { 'l': '~/.config/nvim/keys/leader.vim' },
             \ { 'i': '~/.config/nvim/init.vim' },
+            \ { 'm': '~/.config/nvim/keys/mappings.vim' },
+            \ { 'w': '~/.config/nvim/keys/whichkey.vim' },
             \ { 's': '~/.config/nvim/general/settings.vim' },
             \ { 'z': '~/.zshrc' },
             \ '~/Blog',

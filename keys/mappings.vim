@@ -1,20 +1,27 @@
 " let mapleader=" "
 " nnoremap <Space> <Nop>
 
+imap <C-h> <C-w>h
+imap <C-j> <C-w>j
+imap <C-k> <C-w>k
+imap <C-l> <C-w>l
+
 let g:mapleader = " "
-let g:maplocalleader = "\\"
+" let g:maplocalleader = "\\"
+nnoremap <Space> <Nop>
 
 " 快速切换为正常模式
-inoremap jj <Esc>
-vnoremap jj <Esc>
+inoremap kj <Esc>
+vnoremap jk <Esc>
+
 
 " 使用视图+< 或+ > 快速缩进
 vnoremap < <gv 
 vnoremap > >gv
 
 " 切换Buffer
-nmap <Tab> :Tabnext<CR>
-nmap <S-Tab> :Tabprev<CR>
+" nmap <Tab> :Tabnext<CR>
+" nmap <S-Tab> :Tabprev<CR>
 
 " Better nav for omnicomplete
 inoremap <expr> <c-j> ("\<C-n>")
@@ -31,13 +38,6 @@ nnoremap <silent> <S-TAB> :bprevious<CR>
 xnoremap K :move '<-2<CR>gv-gv
 xnoremap J :move '>+1<CR>gv-gv
 
-" Start interactive EasyAlign in visual mode (e.g. vipga)
-xmap ga <Plug>(EasyAlign)
-
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)
-
-
 " Ctrl + s 保存
 nnoremap <silent> <C-s> :w<CR>
 " 保存文件并退出
@@ -53,16 +53,20 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+" 移动字符
+inoremap <C-a> <Left>
+inoremap <C-f> <Right>
+
 " 切换buffers
-nmap <leader>1 <Plug>AirlineSelectTab1
-nmap <leader>2 <Plug>AirlineSelectTab2
-nmap <leader>3 <Plug>AirlineSelectTab3
-nmap <leader>4 <Plug>AirlineSelectTab4
-nmap <leader>5 <Plug>AirlineSelectTab5
-nmap <leader>6 <Plug>AirlineSelectTab6
-nmap <leader>7 <Plug>AirlineSelectTab7
-nmap <leader>8 <Plug>AirlineSelectTab8
-nmap <leader>9 <Plug>AirlineSelectTab9
+" nmap <leader>1 <Plug>AirlineSelectTab1
+" nmap <leader>2 <Plug>AirlineSelectTab2
+" nmap <leader>3 <Plug>AirlineSelectTab3
+" nmap <leader>4 <Plug>AirlineSelectTab4
+" nmap <leader>5 <Plug>AirlineSelectTab5
+" nmap <leader>6 <Plug>AirlineSelectTab6
+" nmap <leader>7 <Plug>AirlineSelectTab7
+" nmap <leader>8 <Plug>AirlineSelectTab8
+" nmap <leader>9 <Plug>AirlineSelectTab9
 
 " Terminal window navigation
 tnoremap <C-h> <C-\><C-N><C-w>h
@@ -74,6 +78,15 @@ inoremap <C-j> <C-\><C-N><C-w>j
 inoremap <C-k> <C-\><C-N><C-w>k
 inoremap <C-l> <C-\><C-N><C-w>l
 tnoremap <Esc> <C-\><C-n>
+
+" noremap  y "*y
+" noremap  Y "*Y
+" noremap  p "*p
+" noremap  P "*P
+" vnoremap y "*y
+" vnoremap Y "*Y
+" vnoremap p "*p
+" vnoremap P "*P
 
 " Use alt + hjkl to resize windows
 nnoremap <silent> <M-j>    :resize -2<CR>
